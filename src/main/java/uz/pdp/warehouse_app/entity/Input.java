@@ -25,13 +25,12 @@ public class Input {
     @Column(nullable = false,unique = true)
     private String code;
 
-    @Column(nullable = false)
     private Timestamp date;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, targetEntity = Currency.class)
     Currency currency;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Warehouse.class)
     Warehouse warehouse;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Supplier.class)
     Supplier supplier;
 }
